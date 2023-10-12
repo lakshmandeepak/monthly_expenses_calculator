@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Nunito, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('file:///C:/Users/Ramdev Ramkumar/Documents/lakshmandeepak project code/502431-digital-art-geometry-texture-black-dark-triangle.jpg');/* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fffdfd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background-color: #000000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .gender-label {
+            display: flex;
+            align-items: center; /* Align text and radio buttons vertically */
+            margin-top: 10px;
+        }
+        .gender-label input[type="radio"] {
+            margin-right: 5px; /* Add some spacing between radio buttons and labels */
+        }
+        .signup-button-container {
+            margin-top: auto;
+            text-align: right;
+        }
+        button {
+            background-color: #ff8800;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff8800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signup-form">
+            <!-- Your form fields here -->
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" required>
+
+            <label for="dob">Date of Birth (DOB)</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <div class="gender-label">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other" required>
+                <label for="other">Other</label>
+            </div>
+
+            <div class="signup-button-container">
+                <button type="button" id="signup-button">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const signupForm = document.getElementById("signup-form");
+            const signupButton = document.getElementById("signup-button");
+
+            signupButton.addEventListener("click", function () {
+                const userData = {
+                    username: document.getElementById("username").value,
+                    email: document.getElementById("email").value,
+                    password: document.getElementById("password").value,
+                    mobile: document.getElementById("mobile").value,
+                    dob: document.getElementById("dob").value,
+                    gender: document.querySelector('input[name="gender"]:checked').value,
+                };
+
+                // Retrieve existing user data as an array of objects from localStorage
+                let existingUserData = JSON.parse(localStorage.getItem("userData")) || [];
+
+                // Check if the user already exists based on email
+                const existingUser = existingUserData.find(user => user.email === userData.email);
+
+                if (existingUser) {
+                    // Redirect to login page if the user already exists
+                    window.location.href = "your_login_page.html";
+                } else {
+                    // Add the new user data to the existing data
+                    existingUserData.push(userData);
+
+                    // Save the updated user data back to localStorage
+                    localStorage.setItem("userData", JSON.stringify(existingUserData));
+
+                    // Redirect to another page (e.g., profile page)
+                    window.location.href = "login.html";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

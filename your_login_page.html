@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('file:///C:/Users/Ramdev Ramkumar/Documents/lakshmandeepak project code/502431-digital-art-geometry-texture-black-dark-triangle.jpg'); /* Replace with the actual image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex; /* Use flexbox to center the container vertically and horizontally */
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set the height of the body to 100% of the viewport height */
+        }
+        .container {
+            max-width: 400px;
+            padding: 40px;
+            color: #fff;
+            background-color: #000000;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #ffffff; /* Change text color to white */
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            color: #000000; /* Change text color to white */
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #ff8800;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #ff8800;
+            color: #000000; /* Change text color on hover */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="mailid">Email:</label>
+                <input type="email" id="mailid" name="mailid" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+    <script>
+        // Function to handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            // Get user input
+            const inputMailId = document.getElementById('mailid').value;
+            const inputPassword = document.getElementById('password').value;
+    
+            // Retrieve user data from localStorage
+            const existingUserData = JSON.parse(localStorage.getItem("userData")) || [];
+    
+            // Check if the user exists based on both email and password
+            const existingUser = existingUserData.find(user => user.email === inputMailId && user.password === inputPassword);
+            if (existingUser) {
+                // Pass all user details as query parameters
+                const queryString = Object.keys(existingUser)
+                    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(existingUser[key])}`)
+                    .join('&');
+                const profileURL = `profile.html?${queryString}`;
+                window.location.href = profileURL;
+            } else {
+                alert('Login failed. Please check your email and password.');
+            }
+        });
+    </script>
+</body>
+</html>

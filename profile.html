@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Nunito, Arial, sans-serif;
+            margin: 0;
+            padding: 0; 
+            background-image: url('file:///C:/Users/Ramdev Ramkumar/Documents/lakshmandeepak project code/502431-digital-art-geometry-texture-black-dark-triangle.jpg');/* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure the body covers the entire viewport height */
+        }
+
+        #profile-container {
+            max-width: 2000px;
+            max-height: 1700;
+            margin: 0 auto;
+            background-color: #000000;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(11, 11, 11, 0.2);
+        }
+
+        #profile-container div {
+            font-size: 24px;
+            margin-bottom: 10px;
+            padding: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #profile-container div:last-child {
+            border-bottom: none;
+        }
+
+        #nameContainer {
+            font-size: 24px;
+            color: aliceblue;
+        }
+        #nameContainer:before {
+            content: "User Name: ";
+            display: inline-block;
+            color: #ff8800;
+        }
+
+        #emailContainer {
+            font-size: 24px;
+            color: aliceblue;
+        }
+        #emailContainer:before {
+            content: "Mail ID: ";
+            display: inline-block;
+            color: #ff8800;
+
+        }
+
+        #dobContainer {
+            color: aliceblue;
+            font-size: 24px;
+        }
+        #dobContainer:before {
+            content: "Date of Birth: ";
+            display: inline-block;
+            color: #ff8800;
+        }
+
+        #genderContainer {
+            text-transform: capitalize;
+            color: aliceblue;
+            font-size: 24px;
+        }
+        #genderContainer:before {
+            content: "Gender: ";
+            display: inline-block;
+            color: #ff8800;
+        }
+
+        #mobileContainer {
+            color: #ffffff;
+            font-size: 24px;
+        }
+        #mobileContainer:before {
+            content: "Mobile: ";
+            display: inline-block;
+            color: #ff8800;
+        }
+        #logout-button {
+            position: absolute;
+            font-weight: bold;
+            font-size: 17px;
+            bottom: 100px;
+            right: 300px;
+            background-color: #ff8800;
+            color: #000000;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="logout-button">Logout</button>
+    <script>
+        // JavaScript to handle the Logout button click event
+        document.getElementById("logout-button").addEventListener("click", function() {
+            // Redirect to the new page in the same tab
+            window.location.href = "Login.html"; // Replace with the actual URL of your new page
+        });
+    </script>
+    <div id="profile-container">
+        <div id="nameContainer"></div>
+        <div id="emailContainer"></div>
+        <div id="dobContainer"></div>
+        <div id="genderContainer"></div>
+        <div id="mobileContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

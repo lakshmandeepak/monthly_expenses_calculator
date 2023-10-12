@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello There!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('file:///C:/Users/Ramdev Ramkumar/Documents/lakshmandeepak project code/502431-digital-art-geometry-texture-black-dark-triangle.jpg'); /* Replace with the actual image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 12px; /* Set the font size to 12px for "Welcome to Expenses" */
+            margin-top: 10px; /* Adjust the margin for spacing */
+        }
+
+        .button-container {
+            margin-top: 20px; /* Add spacing between the text and buttons */
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: orange; /* Change the button background color to orange */
+            color: black; /* Change the text color to black */
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button-container button:hover {
+            background-color: #ff9900; /* Change the hover background color to a darker shade of orange */
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello There!</h1>
+    <h2>---Welcome to Expenses---</h2>
+    <div class="button-container">
+        <button onclick="openLoginPage()">Login</button>
+        <script>
+            function openLoginPage() {
+                // Specify the URL of the login page
+                var loginPageURL = 'your_login_page.html'; // Replace with your actual login page URL
+    
+                // Open the new page in the same tab
+                window.location.href = loginPageURL;
+            }
+        </script>
+        
+        <button onclick="openSignUpPage()">Sign Up</button>
+        <script>
+            function openSignUpPage() {
+                // Specify the URL of the sign-up page
+                var signUpPageURL = 'your_sign_up_page.html'; // Replace with your actual sign-up page URL
+    
+                // Open the new page in the same tab
+                window.location.href = signUpPageURL;
+            }
+        </script>
+    </body>
+</html>
